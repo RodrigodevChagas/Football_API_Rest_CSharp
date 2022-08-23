@@ -1,6 +1,7 @@
 global using APIFutebol.Data;
 global using Microsoft.EntityFrameworkCore;
 using APIFutebol.Data.Dtos;
+using APIFutebol.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,11 @@ builder.Services.AddDbContext<FutebolContext>(options =>
     options.UseLazyLoadingProxies()
     .UseSqlServer(builder.Configuration.GetConnectionString("FutebolConnection"));
 });
+
+builder.Services.AddScoped<ArbitragemService, ArbitragemService>();
+builder.Services.AddScoped<ConfrontoService, ConfrontoService>();
+builder.Services.AddScoped<LocalizacaoService, LocalizacaoService>();
+builder.Services.AddScoped<ResultadoService, ResultadoService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
