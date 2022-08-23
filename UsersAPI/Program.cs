@@ -19,6 +19,7 @@ builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
     .AddEntityFrameworkStores<UserDbContext>();
 
 builder.Services.AddScoped<CadastroService, CadastroService>();
+builder.Services.AddScoped<LoginService, LoginService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
