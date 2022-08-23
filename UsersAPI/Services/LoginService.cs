@@ -8,7 +8,12 @@ namespace UsersAPI.Services
     {
         private SignInManager<IdentityUser<int>> _signInManager;
 
-        internal Result LogaUsuario(LoginRequest request)
+        public LoginService(SignInManager<IdentityUser<int>> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+
+        public Result LogaUsuario(LoginRequest request)
         {
             var resultadoIdentity = _signInManager.PasswordSignInAsync(request.Username, request.Password, false, false);
             if (resultadoIdentity.Result.Succeeded) return Result.Ok();

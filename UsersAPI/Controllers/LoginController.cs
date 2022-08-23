@@ -15,7 +15,7 @@ namespace UsersAPI.Controllers
         {
             _loginService = loginService;
         }
-
+        [HttpPost]
         public IActionResult LogaUsuario(LoginRequest request) {
 
             Result resultado = _loginService.LogaUsuario(request);
