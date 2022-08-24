@@ -20,6 +20,7 @@ builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
 builder.Services.AddScoped<CadastroService, CadastroService>();
 builder.Services.AddScoped<LoginService, LoginService>();
 builder.Services.AddScoped<TokenService, TokenService>();
+builder.Services.AddScoped<LogoutService, LogoutService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
