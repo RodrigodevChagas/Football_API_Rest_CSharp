@@ -19,9 +19,8 @@ namespace UsersAPI.Controllers
         public IActionResult LogaUsuario(LoginRequest request) {
 
             Result resultado = _loginService.LogaUsuario(request);
-            if (resultado.IsFailed) return Unauthorized();
-            return Ok();
-        
+            if (resultado.IsFailed) return Unauthorized(resultado.Errors);
+            return Ok(resultado.Successes);
         }
     }
 }
