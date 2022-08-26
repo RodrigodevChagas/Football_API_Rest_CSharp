@@ -25,7 +25,7 @@ namespace UsersAPI.Controllers
             return Ok(resultado.Successes.First());
         }
 
-        [HttpPost("/ ativa")]
+        [HttpPost("/ativa")]
         public IActionResult AtivaUsuario(AtivaContaRequest request) {
 
             Result resultado = _cadastroService.AtivaUsuario(request);
