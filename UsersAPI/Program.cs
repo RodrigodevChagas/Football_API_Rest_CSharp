@@ -14,8 +14,12 @@ builder.Services.AddDbContext<UserDbContext>(options =>
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("UsuarioConnection"));
 });
-builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
-    .AddEntityFrameworkStores<UserDbContext>();
+builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(opt =>
+
+    opt.SignIn.RequireConfirmedEmail = true
+    )
+     .AddEntityFrameworkStores<UserDbContext>()
+     .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<CadastroService, CadastroService>();
 builder.Services.AddScoped<LoginService, LoginService>();
