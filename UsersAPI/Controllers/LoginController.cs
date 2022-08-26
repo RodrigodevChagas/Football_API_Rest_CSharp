@@ -20,7 +20,7 @@ namespace UsersAPI.Controllers
 
             Result resultado = _loginService.LogaUsuario(request);
             if (resultado.IsFailed) return Unauthorized(resultado.Errors);
-            return Ok(resultado.Successes);
+            return Ok(resultado.Successes.First());
         }
     }
 }
